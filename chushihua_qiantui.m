@@ -1,8 +1,8 @@
 function [MPS,MSOC,state_fengxian]=chushihua_qiantui(shu_NP,state_GP,state_ES,PV,ES,...
-Pr,LP,weizhi_PV,weizhi_LP,weizhi_ES,shu_PV,shu_ES,t,TTR,RX,shu_pingheng,ES_pingheng,Pr_pingheng,duan_ES)
+Pr,LP,weizhi_PV,weizhi_LP,weizhi_ES,shu_PV,shu_ES,t,TTR,RX,shu_pingheng,ES_pingheng,Pr_pingheng,duan_ES,duanLPshu)
 
-%%¼ÆËãÃ¿¸ö×´Ì¬µÄ¾»¹¦ÂÊÖµºÍ·çÏÕÖµ
-state_fengxian=zeros(shu_NP,shu_pingheng,TTR);%%¼ÇÂ¼Ä¿±êÔ¼Êø×´Ì¬
+%%ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½×´Ì¬ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Í·ï¿½ï¿½ï¿½Öµ
+state_fengxian=zeros(shu_NP,shu_pingheng,TTR);%%ï¿½ï¿½Â¼Ä¿ï¿½ï¿½Ô¼ï¿½ï¿½×´Ì¬
 
 shu_shoulian=0;
    MPS=10^10*ones(shu_NP,shu_pingheng,TTR);
@@ -21,11 +21,18 @@ for k=t:t+TTR-1
           else   P_PV(j)=(state_GP(j,i)-1)/(shu_PV(j)-1)*PV(j)*1000;
           end
       end 
-
+     L_LP=LP*1000;
+      for  f=1:length(weizhi_LP(:,1))
+          if shu_LP(f)==1
+              L_LP(weizhi_LP(f,1),ttt)=0;  
+          else    
+              L_LP(weizhi_LP(f,1),ttt)=(state_GP(f+4,i)-1)*duanLPshu*L_LP(weizhi_LP(f,1),ttt);%%å®žé™…è´Ÿè·å¤§å°
+          end
+      end 
       P_PV(4)=PV(4)*1000;
-      P_dgl(1)=-LP(24,ttt)*1000;%%ES1¸ú×Ù¸ººÉ24
-      P_dgl(2)=P_PV(2)-LP(32,ttt)*1000;%%ES2¸ú×Ùpv1ºÍ¸ººÉ32
-      if P_PV(3)>0.8*PV(3)*1000%%ES3¸ú×Ùpv2£¬´óÓÚ80%³äµç£¬Ð¡ÓÚ20%·Åµç
+      P_dgl(1)=-L_LP(24,ttt);%%ES1ï¿½ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½24
+      P_dgl(2)=P_PV(2)-L_LP(32,ttt);%%ES2ï¿½ï¿½ï¿½ï¿½pv1ï¿½Í¸ï¿½ï¿½ï¿½32
+      if P_PV(3)>0.8*PV(3)*1000%%ES3ï¿½ï¿½ï¿½ï¿½pv2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½80%ï¿½ï¿½ç£¬Ð¡ï¿½ï¿½20%ï¿½Åµï¿½
         P_dgl(3)=P_PV(3)*1000;
       elseif P_PV(3)<0.2*PV(3)*1000
         P_dgl(3)=-P_PV(3)*1000; 
@@ -44,12 +51,12 @@ else
         end
 end
       end  
-      [PQ]=PQ_jisuan(RX,LP(:,ttt)*1000,weizhi_LP,P_PV,weizhi_PV,P_ES,weizhi_ES);
+      [PQ]=PQ_jisuan(RX,L_LP(:,ttt)*1000,weizhi_LP,P_PV,weizhi_PV,P_ES,weizhi_ES);
       [P_zong,shoulian0]=qiantui(PQ,RX);
       if shoulian0==1
 
       shu_shoulian=shu_shoulian+1;
-      state_fengxian(i,es,k-t+1)=-(P_zong)/1000; %%Æ½ºâ½Úµã·µËÍµÄ¹¦ÂÊÎªÕý
+      state_fengxian(i,es,k-t+1)=-(P_zong)/1000; %%Æ½ï¿½ï¿½Úµã·µï¿½ÍµÄ¹ï¿½ï¿½ï¿½Îªï¿½ï¿½
       else  
           state_fengxian(i,es,k-t+1)=10^10; 
       end
