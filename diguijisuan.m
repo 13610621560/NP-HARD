@@ -3,16 +3,16 @@ function  [mubiao,fengxian,xxx]=diguijisuan(ES,SOC0,TTR,shu_pingheng,MSOC,...
  tongji1=zeros(TTR+1,TTR+1,TTR+1,TTR+1,TTR+1,TTR+1,TTR+1,TTR+1,TTR+1,TTR+1); 
              jishu=1;
             kk1=0;
-               for L2=1:TTR+1 %%╦╨╨ипРап2╣дЁУй╪й╠©л
-               for L3=L2:TTR+1%%%%╦╨╨ипРап3╣дЁУй╪й╠©л
-               for L4=L3:TTR+1%%%%╦╨╨ипРап4╣дЁУй╪й╠©л
-               for L5=L4:TTR+1%%%%╦╨╨ипРап5╣дЁУй╪й╠©л
-               for L6=L5:TTR+1%%%%╦╨╨ипРап6╣дЁУй╪й╠©л
-               for G2=1:TTR+1 %%╣Гт╢пРап2╣дЁУй╪й╠©л
-               for G3=G2:TTR+1%%%%╣Гт╢пРап3╣дЁУй╪й╠©л
-               for G4=G3:TTR+1%%%%╣Гт╢пРап4╣дЁУй╪й╠©л
-               for G5=G4:TTR+1%%%%╣Гт╢пРап5╣дЁУй╪й╠©л
-               for G6=G5:TTR+1%%%%╣Гт╢пРап6╣дЁУй╪й╠©л 
+               for L2=1:TTR+1 %%О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫2О©╫дЁО©╫й╪й╠О©╫О©╫
+               for L3=L2:TTR+1%%%%О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫3О©╫дЁО©╫й╪й╠О©╫О©╫
+               for L4=L3:TTR+1%%%%О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫4О©╫дЁО©╫й╪й╠О©╫О©╫
+               for L5=L4:TTR+1%%%%О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫5О©╫дЁО©╫й╪й╠О©╫О©╫
+               for L6=L5:TTR+1%%%%О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫6О©╫дЁО©╫й╪й╠О©╫О©╫
+               for G2=1:TTR+1 %%О©╫О©╫т╢О©╫О©╫О©╫О©╫2О©╫дЁО©╫й╪й╠О©╫О©╫
+               for G3=G2:TTR+1%%%%О©╫О©╫т╢О©╫О©╫О©╫О©╫3О©╫дЁО©╫й╪й╠О©╫О©╫
+               for G4=G3:TTR+1%%%%О©╫О©╫т╢О©╫О©╫О©╫О©╫4О©╫дЁО©╫й╪й╠О©╫О©╫
+               for G5=G4:TTR+1%%%%О©╫О©╫т╢О©╫О©╫О©╫О©╫5О©╫дЁО©╫й╪й╠О©╫О©╫
+               for G6=G5:TTR+1%%%%О©╫О©╫т╢О©╫О©╫О©╫О©╫6О©╫дЁО©╫й╪й╠О©╫О©╫ 
                  chongfu=0;
                  [L2,L3,L4,L5,L6,G2,G3,G4,G5,G6]=xunhuanchongzhi(L2,L3...
                     ,L4,L5,L6,G2,G3,G4,G5,G6,QL,QG,TTR);
@@ -31,19 +31,19 @@ function  [mubiao,fengxian,xxx]=diguijisuan(ES,SOC0,TTR,shu_pingheng,MSOC,...
                  p_h4=zeros(1,TTR);
                  p_g1=zeros(1,TTR);
                  jishu1=zeros(shu_pingheng+1,shu_pingheng+1,TTR);
-              for tt=1:TTR  %%р╩п║й╠р╩п║й╠еп╤о
+              for tt=1:TTR  %%р╩п║й╠р╩п║й╠О©╫п╤О©╫
                 [L_m,L_n] =find([L2,L3,L4,L5,L6]==tt);
                 [G_m,G_n] =find([G2,G3,G4,G5,G6]==tt);
               
                if xulie_qiefuhe(tt)+1<size(QL,1)
-              if isempty(L_m) %%╢кй╠╤нЁжпЬиой╠╤н╦╨╨ипРап
+              if isempty(L_m) %%О©╫О©╫й╠О©╫нЁО©╫О©╫О©╫О©╫О©╫й╠О©╫н╦О©╫О©╫О©╫О©╫О©╫О©╫О©╫
                     xulie_qiefuhe(tt+1)=xulie_qiefuhe(tt);
-              else%%пРап╥╒иЗак╠Д╩╞
+              else%%О©╫О©╫О©╫п╥О©╫О©╫О©╫О©╫к╠Д╩╞
                     xulie_qiefuhe(tt+1)=max(L_n);
               end
-              if isempty(G_m) %%╢кй╠╤нЁжпЬиой╠╤н╣Гт╢пРап
+              if isempty(G_m) %%О©╫О©╫й╠О©╫нЁО©╫О©╫О©╫О©╫О©╫й╠О©╫н╣О©╫т╢О©╫О©╫О©╫О©╫
                     xulie_qiguang(tt+1)=xulie_qiguang(tt);
-              else%%пРап╥╒иЗак╠Д╩╞
+              else%%О©╫О©╫О©╫п╥О©╫О©╫О©╫О©╫к╠Д╩╞
                     xulie_qiguang(tt+1)=max(G_n);
               end
              [m0,n0]=find(qie_L(:,:,tt,xulie_qiefuhe(tt)+1,xulie_qiguang(tt)+1)==xulie_qiefuhe(tt+1)+1);
@@ -61,7 +61,7 @@ function  [mubiao,fengxian,xxx]=diguijisuan(ES,SOC0,TTR,shu_pingheng,MSOC,...
            if kk>1
               for shu=1:kk-1 
                  gailvJI=1;
-                  for i=1:length(PV)-1%%р╩╤╗в╒рБ╠П╟яPV=0╨м╡Ясм╩З╣д©╪бгтздз
+                  for i=1:length(PV)-1%%р╩О©╫О©╫в╒О©╫О©╫О©╫О©╫PV=0О©╫м╡О©╫О©╫м╩О©╫О©╫д©О©╫О©╫О©╫О©╫О©╫О©╫О©╫
                       if QG(xulie_qiguang(tt)+1,i+1)==0
                   if state_GP(i,m1(shu))>1
                       gailvJI=gailvJI*pv_state(i,state_GP(i,m1(shu)),tt);
@@ -83,6 +83,63 @@ function  [mubiao,fengxian,xxx]=diguijisuan(ES,SOC0,TTR,shu_pingheng,MSOC,...
                     if  state_GP(4,m1(shu))~=1
                       gailvJI=0 ; 
                     end              
+                end
+                %Ф√╟Е╒·Е┬╓Ф√╜Х╢÷Х█╥Г┼╤Ф─│Ф≤╞Е░╕Е▄╧И┘█ QL1Ц─│4Ц─│2Ц─│3
+                      if QL(xulie_qiefuhe(tt)+1,2)==0
+                  if state_GP(6+length(PV),m1(shu))==1 %23Е▐╥Х╢÷Х█╥
+                      gailvJI=gailvJI*LPgailv;
+                  else
+                      gailvJI=0;
+                  end
+                      elseif QL(xulie_qiefuhe(tt)+1,2)==1
+                          if state_GP(6+length(PV),m1(shu))~=1
+                           gailvJI=0; 
+                          end                 
+                      end
+                      if QL(xulie_qiefuhe(tt)+1,3)==0
+                  if state_GP(16+length(PV),m1(shu))>1 && state_GP(17+length(PV),m1(shu))>1 && state_GP(18+length(PV),m1(shu))>1 %33Ц─│34Ц─│35Х╢÷Х█╥
+                      gailvJI=gailvJI*LPgailv*LPgailv*LPgailv;
+                  else
+                      gailvJI=0;
+                  end
+                      elseif QL(xulie_qiefuhe(tt)+1,3)==1
+                          if state_GP(16+length(PV),m1(shu))==1 && state_GP(17+length(PV),m1(shu))==1 && state_GP(18+length(PV),m1(shu))==1
+                            gailvJI=gailvJI;
+                          else 
+                              gailvJI=0; 
+                          end                 
+                      end     
+                      if QL(xulie_qiefuhe(tt)+1,4)==0
+                  if state_GP(12+length(PV),m1(shu))>1 && state_GP(13+length(PV),m1(shu))>1 %29Ц─│30Х╢÷Х█╥ Ф■╬Е┘╔main
+                      gailvJI=gailvJI*LPgailv*LPgailv;
+                  else
+                      gailvJI=0;
+                  end
+                      elseif QL(xulie_qiefuhe(tt)+1,4)==1
+                          if state_GP(12+length(PV),m1(shu))==1 && state_GP(13+length(PV),m1(shu))==1
+                            gailvJI=gailvJI;
+                          else 
+                              gailvJI=0; 
+                          end                 
+                      end
+                      
+                      if QL(xulie_qiefuhe(tt)+1,5)==0
+                  if state_GP(22+length(PV),m1(shu))>1 && state_GP(23+length(PV),m1(shu))>1 %39Ц─│40Х╢÷Х█╥
+                      gailvJI=gailvJI*LPgailv*LPgailv;
+                  else
+                      gailvJI=0;
+                  end
+                      elseif QL(xulie_qiefuhe(tt)+1,5)==1
+                          if state_GP(22+length(PV),m1(shu))==1 && state_GP(23+length(PV),m1(shu))==1
+                            gailvJI=gailvJI;
+                          else 
+                              gailvJI=0; 
+                          end                 
+                      end
+                if QL(xulie_qiefuhe(tt)+1,1)==0                
+                       gailvJI = gailvJI*LPgailv^length(fuhehao);     
+                   else
+                       gailvJI=0;
                 end
                 ES_tang=1;  
                 for i=1:size(state_ES,1)-1
@@ -192,7 +249,7 @@ function  [mubiao,fengxian,xxx]=diguijisuan(ES,SOC0,TTR,shu_pingheng,MSOC,...
 
                end
 
-                 for i=1:jishu-1%%╦╨╨ипРап2╣дЁУй╪й╠©л
+                 for i=1:jishu-1%%О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫2О©╫дЁО©╫й╪й╠О©╫О©╫
                   mubiao=mubiao+E_f0(i)/sum(zong_gailvJI);
                 fengxian(1)=fengxian(1)+p_h10(i)/sum(zong_gailvJI);
                 fengxian(2)=fengxian(2)+p_h20(i)/sum(zong_gailvJI);
