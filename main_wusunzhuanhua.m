@@ -1,23 +1,23 @@
-%%ÎÞËð×ª»¯Ëã·¨Ö÷³ÌÐò,ÐÞ¸ÄÓÚ2024Äê8ÔÂ7ÈÕ
+%%ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Þ¸ï¿½ï¿½ï¿½2024ï¿½ï¿½8ï¿½ï¿½7ï¿½ï¿½
 clear
-SolarData=xlsread('Solar Data.xls','sheet1');%¹âÊý¾Ý
+SolarData=xlsread('Solar Data.xls','sheet1');%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 SolarData(SolarData>1)=1;
-weizhi_PV=[8,30,14,25];%%PV½ÓÈë½ÚµãÎ»ÖÃ
+weizhi_PV=[8,30,14,25];%%PVï¿½ï¿½ï¿½ï¿½Úµï¿½Î»ï¿½ï¿½
 weizhi_LP=[18 2;19 3;20 4;21 5;22 6; 23 17;24 18;25 10;26 25;27 12;28 13;29 15;30 16;...
-    31 19;32 30;33 21;34 22;35 23;36 25;37 31;38 27; 39 28;40 29];%%½ÓÈë½ÚµãÎ»ÖÃ
-weizhi_ES=[18,30,14];%ES½ÓÈë½ÚµãÎ»ÖÃ
-%%ÉèÖÃÔ´ºÉ´¢·Ö¶Î×´Ì¬Êý
-duan_PV=2;%%Ã¿¸ö¹â·ü×´Ì¬·Ö¶ÎÈÝÁ¿£¬MW
-duan_ES=0.5;%%Ã¿¸ö´¢ÄÜ×´Ì¬·Ö¶ÎÈÝÁ¿£¬MW
-duan_LP=1;%%Ã¿¸ö¸ººÉ×´Ì¬·Ö¶ÎÈÝÁ¿£¬MW
+    31 19;32 30;33 21;34 22;35 23;36 25;37 31;38 27; 39 28;40 29];%%ï¿½ï¿½ï¿½ï¿½Úµï¿½Î»ï¿½ï¿½
+weizhi_ES=[18,30,14];%ESï¿½ï¿½ï¿½ï¿½Úµï¿½Î»ï¿½ï¿½
+%%ï¿½ï¿½ï¿½ï¿½Ô´ï¿½É´ï¿½ï¿½Ö¶ï¿½×´Ì¬ï¿½ï¿½
+duan_PV=2;%%Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MW
+duan_ES=0.5;%%Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MW
+duan_LP=1;%%Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MW
 
 ES_pingheng=5;
 PV00=[8 10 6 2]; 
 ES00=[1 1 1];
-t=10;%%¹ÊÕÏÆðÊ¼Ê±¿Ì
-TTR=4;%%¹ÊÕÏ³ÖÐøÊ±¼ä
+t=10;%%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼Ê±ï¿½ï¿½
+TTR=4;%%ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 RX=xlsread('RX.xlsx');
-%%¸ººÉ´óÐ¡
+%%ï¿½ï¿½ï¿½É´ï¿½Ð¡
 shu_fangan0=10;
 mubiao=zeros(1,shu_fangan0);
 fengxian=zeros(5,shu_fangan0);
@@ -28,49 +28,49 @@ bushoulian=0;
  for   fangan=1:shu_fangan0  
      
  
- %%·ÇÆ½ºâ½Úµã´¢ÄÜÊäÈë
+ %%ï¿½ï¿½Æ½ï¿½ï¿½Úµã´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ES=ES00;
 PV=PV00; 
 LP=xlsread('L24')*2;%%*24
-%%³õÊ¼»¯ËùÓÐ·½°¸µÄ¸ººÉ×´Ì¬
+%%ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½×´Ì¬
 fangan_chushihua
-%%³õÊ¼»¯ËùÓÐ×´Ì¬×éºÏµÄ³±Á÷
+%%ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ÏµÄ³ï¿½ï¿½ï¿½
 state_zuhe
-%%³õÊ¼»¯¸÷Àà±êÇ©
+%%ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©
 
 MPS=zeros(shu_NP,shu_pingheng,TTR,size(QL,1),size(QG,1));
 MSOC=zeros(shu_NP,shu_pingheng,TTR,size(QL,1),size(QG,1));
 state_fengxian=zeros(shu_NP,shu_pingheng,TTR,size(QL,1),size(QG,1));
-for i=1:size(QL,1)-1%%³õÊ¼»¯²»Í¬Ô´ºÉÐòÁÐ×éºÏÏÂµÄ³±Á÷¼ÆËã½á¹û£¬È«ÇÐ²»¿¼ÂÇ
-    for j=1:size(QG,1)-1%%³õÊ¼»¯²»Í¬Ô´ºÉÐòÁÐ×éºÏÏÂµÄ³±Á÷¼ÆËã½á¹û£¬È«ÇÐ²»¿¼ÂÇ
+for i=1:size(QL,1)-1%%ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Í¬Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½
+    for j=1:size(QG,1)-1%%ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Í¬Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½
       LP0=QL_neirong(QL(i,:),LP);
       PV0=QG_neirong(QG(j,:),PV);
      [MPS(:,:,:,i,j),MSOC(:,:,:,i,j),state_fengxian(:,:,:,i,j)]=chushihua_qiantui(shu_NP,state_GP,state_ES,PV0,ES,Pr...
-    ,LP0,weizhi_PV,weizhi_LP,weizhi_ES,shu_PV,shu_ES,t,TTR,RX,shu_pingheng,ES_pingheng,Pr_pingheng,duan_ES);
+    ,LP0,weizhi_PV,weizhi_LP,weizhi_ES,shu_PV,shu_ES,shu_LP,t,TTR,RX,shu_pingheng,ES_pingheng,Pr_pingheng,duan_ES);
     end
 end
 
 qie_L=zeros(shu_NP,shu_pingheng,TTR,length(QL00)-sum(QL00),length(QG00)-sum(QG00));
 qie_G=zeros(shu_NP,shu_pingheng,TTR,length(QL00)-sum(QL00),length(QG00)-sum(QG00));
-for i=1:size(QL,1)%%¼ÆËãËùÓÐ×éºÏ×´Ì¬ÏÂµÄÏµÍ³ÎÈ¶¨ÐòÁÐ×´Ì¬
+for i=1:size(QL,1)%%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½Âµï¿½ÏµÍ³ï¿½È¶ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
  for j=1:size(QG,1)
     [qie_L(:,:,:,i,j),qie_G(:,:,:,i,j)]=wendingzhuangtai(MPS,shu_pingheng,shu_NP,t,TTR,i,j,QL,QG);
  end
 end
 
-%¼ÆËã¹â·ü¸÷×´Ì¬¸ÅÂÊ
+%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½
    [pv_state]=changjinggailv(SolarData,PV,shu_PV,duan_PV,t,TTR);
-    %%³õÊ¼ÏµÍ³¼¶´¢ÄÜSOC    
+    %%ï¿½ï¿½Ê¼ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SOC    
             for kk=1:shu_pingheng
               if  sum(abs(state_ES(:,kk)-[ceil(ES_pingheng/duan_ES)/2,ceil(ES/duan_ES)/2+1]'))==0
                      soc=kk;
               end
             end
- %%Í³¼Æ·ÂÕæÊ±¼ä1   
+ %%Í³ï¿½Æ·ï¿½ï¿½ï¿½Ê±ï¿½ï¿½1   
  haoshi1=clock;
  [mubiao(fangan),fengxian(:,fangan),xxx]=diguijisuan(ES,soc,TTR,shu_pingheng,MSOC...
      ,pv_state,state_GP,QL,QG,qie_L,qie_G,fuheshu,PV,PV00,ES_pingheng,duan_ES,state_ES,xxx);
-%%Í³¼Æ·ÂÕæÊ±¼ä
+%%Í³ï¿½Æ·ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 xxx=[xxx;zeros(1,TTR+1)];
 haoshi2=clock;
 simulation(fangan)=etime(haoshi2,haoshi1);

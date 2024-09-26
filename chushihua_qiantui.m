@@ -1,5 +1,5 @@
 function [MPS,MSOC,state_fengxian]=chushihua_qiantui(shu_NP,state_GP,state_ES,PV,ES,...
-Pr,LP,weizhi_PV,weizhi_LP,weizhi_ES,shu_PV,shu_ES,t,TTR,RX,shu_pingheng,ES_pingheng,Pr_pingheng,duan_ES,duanLPshu)
+Pr,LP,weizhi_PV,weizhi_LP,weizhi_ES,shu_PV,shu_ES,shu_LP,t,TTR,RX,shu_pingheng,ES_pingheng,Pr_pingheng,duan_ES,duanLPshu)
 
 %%����ÿ��״̬�ľ�����ֵ�ͷ���ֵ
 state_fengxian=zeros(shu_NP,shu_pingheng,TTR);%%��¼Ŀ��Լ��״̬
@@ -51,7 +51,7 @@ else
         end
 end
       end  
-      [PQ]=PQ_jisuan(RX,L_LP(:,ttt)*1000,weizhi_LP,P_PV,weizhi_PV,P_ES,weizhi_ES);
+      [PQ]=PQ_jisuan(RX,L_LP(:,ttt),weizhi_LP,P_PV,weizhi_PV,P_ES,weizhi_ES);
       [P_zong,shoulian0]=qiantui(PQ,RX);
       if shoulian0==1
 

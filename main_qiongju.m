@@ -46,7 +46,7 @@ for i=1:size(QL,1)-1%%��ʼ����ͬԴ����������µĳ
       LP0=QL_neirong(QL(i,:),LP);
       PV0=QG_neirong(QG(j,:),PV);
      [MPS(:,:,:,i,j),MSOC(:,:,:,i,j),state_fengxian(:,:,:,i,j)]=chushihua_qiantui(shu_NP,state_GP,state_ES,PV0,ES,Pr...
-    ,LP0,weizhi_PV,weizhi_LP,weizhi_ES,shu_PV,shu_ES,t,TTR,RX,shu_pingheng,ES_pingheng,Pr_pingheng,duan_ES,duanLPshu);
+    ,LP0,weizhi_PV,weizhi_LP,weizhi_ES,shu_PV,shu_ES,shu_LP,t,TTR,RX,shu_pingheng,ES_pingheng,Pr_pingheng,duan_ES,duanLPshu);
     end
 end
 qie_L=zeros(shu_NP,shu_pingheng,TTR,length(QL00)-sum(QL00),length(QG00)-sum(QG00));
