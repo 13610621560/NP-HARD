@@ -1,5 +1,5 @@
 function  [mubiao,fengxian,xxx]=diguijisuan(ES,SOC0,TTR,shu_pingheng,MSOC,...
-    pv_state,state_GP,QL,QG,qie_L,qie_G,fuheshu,PV,PV00,ES_pingheng,duan_ES,state_ES,xxx)
+    pv_state,state_GP,QL,QG,qie_L,qie_G,fuheshu,PV,PV00,ES_pingheng,duan_ES,state_ES,xxx,fuhehao,LPgailv)
  tongji1=zeros(TTR+1,TTR+1,TTR+1,TTR+1,TTR+1,TTR+1,TTR+1,TTR+1,TTR+1,TTR+1); 
              jishu=1;
             kk1=0;
@@ -86,7 +86,7 @@ function  [mubiao,fengxian,xxx]=diguijisuan(ES,SOC0,TTR,shu_pingheng,MSOC,...
                 end
                 %新增判断负荷状态是否匹配 QL1、4、2、3
                       if QL(xulie_qiefuhe(tt)+1,2)==0
-                  if state_GP(6+length(PV),m1(shu))==1 %23号负荷
+                  if state_GP(6+length(PV),m1(shu))>1 %23号负荷
                       gailvJI=gailvJI*LPgailv;
                   else
                       gailvJI=0;

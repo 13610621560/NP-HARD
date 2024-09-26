@@ -69,7 +69,7 @@ end
  %%ͳ�Ʒ���ʱ��1   
  haoshi1=clock;
  [mubiao(fangan),fengxian(:,fangan),xxx]=diguijisuan(ES,soc,TTR,shu_pingheng,MSOC...
-     ,pv_state,state_GP,QL,QG,qie_L,qie_G,fuheshu,PV,PV00,ES_pingheng,duan_ES,state_ES,xxx);
+     ,pv_state,state_GP,QL,QG,qie_L,qie_G,fuheshu,PV,PV00,ES_pingheng,duan_ES,state_ES,xxx,fuhehao,LPgailv);
 %%ͳ�Ʒ���ʱ��
 xxx=[xxx;zeros(1,TTR+1)];
 haoshi2=clock;
